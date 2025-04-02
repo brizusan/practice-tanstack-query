@@ -1,11 +1,11 @@
 export interface Product {
-  id: string;
+  id?: string;
   title: string;
   price: number;
   description: string;
   category: Category;
   image: string;
-  rating: Rating;
+  rating?: Rating;
 }
 
 export enum Category {

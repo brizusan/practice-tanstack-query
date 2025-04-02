@@ -13,8 +13,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const queryClient = useQueryClient();
 
   const prefetchProduct = () => {
-    console.log("desde prefetchProduct");
-
     queryClient.prefetchQuery({
       queryKey: ["product", product.id],
       queryFn: () => getProductById(product.id),

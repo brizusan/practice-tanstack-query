@@ -35,3 +35,15 @@ export const getProductById = async (id: Product["id"]): Promise<Product> => {
     throw error;
   }
 };
+
+export const createProduct = async (product: Product): Promise<Product> => {
+  try {
+    const { data } = await productsApi.post<Product>("/products", product);
+    return data;
+  } catch (error) {
+    if (isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.message);
+    }
+    throw error;
+  }
+};

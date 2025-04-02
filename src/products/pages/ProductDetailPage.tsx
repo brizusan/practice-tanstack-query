@@ -9,6 +9,7 @@ export const ProductDetailPage = () => {
   if (!id) return <p>No se ha encontrado el producto</p>;
 
   const { data, isLoading, isError, error } = useProduct({ id });
+  console.log(data);
 
   return (
     <div className=" space-y-8 w-full">
@@ -43,8 +44,9 @@ export const ProductDetailPage = () => {
             </span>
             <p className="text-sm  text-center">{data?.description}</p>
             <p>
-              <span className="font-bold">Rating:</span> {data?.rating.rate} de
-              5 ({data?.rating.count} valoraciones)
+              <span className="font-bold">Rating:</span>{" "}
+              {data?.rating?.rate ? data.rating.rate : 0} de 5 (
+              {data?.rating?.count ? data.rating.count : 0} valoraciones)
             </p>
           </section>
         </section>
